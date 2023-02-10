@@ -590,7 +590,7 @@ body {
   font-size: 21px;
   line-height: 1.6em;
   font-weight: 400;
-  background: #000000;
+  background: #FFDD4F;
   color: #000000;
 }
 
@@ -1769,7 +1769,7 @@ header {
   display: block;
   width: 100%;
   z-index: 101;
-  background: #000000;
+  background: #FFDD4F;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
@@ -1783,150 +1783,15 @@ header .header-logo-link {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 334px;
-  height: 68px;
   transform: translateY(-50%);
 }
 
-header.scrolled-header .header-logo-link {
-  height: 39.7px;
-}
-
-.header-logo,
-svg.header-logo {
-  display: block;
-}
-
-svg.header-logo .logo-colour {
+.header-logo .logo-border,
+.header-logo .logo-d,
+.header-logo .logo-f,
+.header-logo .logo-duck,
+.header-logo .logo-foot {
   fill: #FFDD4F;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-svg.header-logo .logo-default {
-  fill: #ffffff;
-}
-
-a.header-logo-link:hover svg.header-logo .logo-colour {
-  fill: #F0A01F;
-}
-
-svg.header-logo .logo-seeds path:first-child {
-  transform: translateY(0);
-  opacity: 1;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-header.scrolled-header svg.header-logo .logo-seeds path:first-child {
-  transform: translateY(-8px);
-  opacity: 0;
-}
-
-.header-logo-link:hover svg.header-logo .logo-seeds path:first-child {
-  transform: translateY(2px);
-}
-
-svg.header-logo .logo-seeds path:nth-child(2) {
-  transform: translateY(0);
-  opacity: 1;
-  -webkit-transition: all 0.25s ease 0.25s;
-  -moz-transition: all 0.25s ease 0.25s;
-  -o-transition: all 0.25s ease 0.25s;
-  transition: all 0.25s ease 0.25s;
-}
-
-.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(2) {
-  transform: translateY(2px);
-}
-
-header.scrolled-header svg.header-logo .logo-seeds path:nth-child(2) {
-  transform: translateY(-8px);
-  opacity: 0;
-  -webkit-transition: all 0.25s eases;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-svg.header-logo .logo-seeds path:nth-child(3) {
-  transform: translateY(0);
-  opacity: 1;
-  -webkit-transition: all 0.25s ease 0.5s;
-  -moz-transition: all 0.25s ease 0.5s;
-  -o-transition: all 0.25s ease 0.5s;
-  transition: all 0.25s ease 0.5s;
-}
-
-.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(3) {
-  transform: translateY(2px);
-}
-
-header.scrolled-header svg.header-logo .logo-seeds path:nth-child(3) {
-  transform: translateY(-8px);
-  opacity: 0;
-  -webkit-transition: all 0.25s eases;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-svg.header-logo .logo-seeds path:nth-child(4) {
-  transform: translateY(0);
-  opacity: 1;
-  -webkit-transition: all 0.25s ease 0.75s;
-  -moz-transition: all 0.25s ease 0.75s;
-  -o-transition: all 0.25s ease 0.75s;
-  transition: all 0.25s ease 0.75s;
-}
-
-.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(4) {
-  transform: translateY(2px);
-}
-
-header.scrolled-header svg.header-logo .logo-seeds path:nth-child(4) {
-  transform: translateY(-8px);
-  opacity: 0;
-  -webkit-transition: all 0.25s eases;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-svg.header-logo .logo-seeds path:nth-child(5) {
-  transform: translateY(0);
-  opacity: 1;
-  -webkit-transition: all 0.25s ease 1s;
-  -moz-transition: all 0.25s ease 1s;
-  -o-transition: all 0.25s ease 1s;
-  transition: all 0.25s ease 1s;
-}
-
-.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(5) {
-  transform: translateY(2px);
-}
-
-header.scrolled-header svg.header-logo .logo-seeds path:nth-child(5) {
-  transform: translateY(-8px);
-  opacity: 0;
-  -webkit-transition: all 0.25s eases;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-svg.header-logo .logo-subtext {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-header.scrolled-header svg.header-logo .logo-subtext {
-  transform: translateY(-8px);
-  opacity: 0;
 }
 
 /* --------------------------------------------------------------------------------------- */
@@ -2457,54 +2322,7 @@ footer {
   overflow: hidden;
   width: 100%;
   z-index: 99;
-  background: #000000;
-  color: #FFDD4F;
-}
-
-.footer-wrapper {
-  z-index: 2;
-}
-
-footer a {
-  color: #FFDD4F;
-}
-
-footer a:hover {
-  color: #ffffff;
-}
-
-/* -------------------------------------------------------------------------------------------- */
-/* Footer Icon ---------------------------------------------- */
-/* -------------------------------------------------------------------------------------------- */
-svg.footer-icon {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-svg.footer-icon polygon {
-  fill: #F0A01F;
-  transform: translateX(0);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-svg.footer-icon:hover polygon {
-  transform: translateX(-6px);
-}
-
-svg.footer-icon path {
-  fill: #ffffff;
-  transform: translateX(0);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-svg.footer-icon:hover path {
-  transform: translateX(6px);
+  background: #FFDD4F;
 }
 
 /* --------------------------------------------------------------------

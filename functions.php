@@ -15,7 +15,7 @@ remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
 function post_remove () { 
     //remove_menu_page( 'index.php' );                  //Dashboard
-    //remove_menu_page( 'edit.php' );                   //Posts
+    remove_menu_page( 'edit.php' );                   //Posts
     //remove_menu_page( 'upload.php' );                 //Media
     //remove_menu_page( 'edit.php?post_type=page' );    //Pages
     remove_menu_page( 'edit-comments.php' );          //Comments
@@ -51,14 +51,38 @@ add_filter( 'big_image_size_threshold', '__return_false' );
 // Login page logo
 // ----------------------------------------------------------------------------------------
 function custom_loginlogo() {
-  echo '<style type="text/css">
-  body.login div#login h1 a {
-    background-image: url('.get_bloginfo("template_directory").'/images/login.png) !important;
-    background-size: contain;
-    width: 245px;
-    height: 50px;
-  }
-  </style>';
+    echo '<style type="text/css">
+        body.login {background: #FFDD4F;}
+        body.login div#login h1 a {
+            background-image: url('.get_bloginfo("template_directory").'/images/login.png) !important;
+            background-size: contain;
+            width: 216px;
+            height: 143px;
+        }
+        body.login #loginform {
+            background: none;
+            border: 2px solid #000000;
+            border-radius: 4px;
+        }
+        body.login form .input {
+            outline: none;
+            background: #ffffff;
+            border: 2px solid #ffffff;
+        }
+        body.login form .input:focus {
+            border-color: #000000;
+            box-shadow: none;
+        }
+        body.login .button-primary {
+            border: 2px solid #000000;
+            outline: none;
+            background: #000000;
+        }
+        body.login .button-primary:hover {
+            border: 2px solid #000000;
+            background: #434343;
+        }
+    </style>';
 }
 add_action('login_head', 'custom_loginlogo');
 
@@ -76,7 +100,8 @@ add_theme_support( 'post-thumbnails' );
 function register_theme_menus() {
 	register_nav_menus(
 		array(
-			'primary-nav' 	=> __( 'Primary Nav' )
+			'left-nav' 	=> __( 'Left Nav' ),
+            'right-nav'  => __( 'Right Nav' )
 		)
 	);
 }
@@ -110,16 +135,16 @@ if( function_exists('acf_add_options_page') ) {
 // ----------------------------------------------------------------------------------------
 // CSS
 // ----------------------------------------------------------------------------------------
-function flo_theme_styles() {
+function duck_theme_styles() {
     wp_enqueue_style( 'main_css', get_template_directory_uri() . '/css/screen.css' );
 }
-add_action( 'wp_enqueue_scripts', 'flo_theme_styles' );
+add_action( 'wp_enqueue_scripts', 'duck_theme_styles' );
 
 
 // ----------------------------------------------------------------------------------------
 // JS
 // ----------------------------------------------------------------------------------------
-function flo_theme_js() {
+function duck_theme_js() {
 	wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'cookie_js', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'), '', true );
 	wp_enqueue_script( 'foundation_js', get_template_directory_uri() . '/js/foundation.min.js', array('jquery'), '', true );
@@ -132,7 +157,7 @@ function flo_theme_js() {
     }
     
 }
-add_action( 'wp_enqueue_scripts', 'flo_theme_js' );
+add_action( 'wp_enqueue_scripts', 'duck_theme_js' );
 
 
 

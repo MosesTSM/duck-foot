@@ -72,10 +72,8 @@ jQuery( document ).ready( function ( $ ) {
         return this;
     }
     // Elements to clear whitespace (select parent element)
-    $('ul#main-menu').cleanWhitespace();
-    $('.nav-buttons').cleanWhitespace();
-    $('#product-gallery-thumbs').cleanWhitespace();
-    $('.product-compatibility ul').cleanWhitespace();
+    $('ul#main-menu-left').cleanWhitespace();
+    $('ul#main-menu-right').cleanWhitespace();
 
 
 
@@ -99,7 +97,7 @@ jQuery( document ).ready( function ( $ ) {
 // --------------------------------------------------------------------------------------
 console.log("%c ----------------------------------------------------------------------------------------------","color: #000700;");
 console.log("%c Website powered by THUNDERSTRUCK SALES AND MARKETING (https://thunderstrucksales.com/)","font-weight: bold; color: #C12032;");
-console.log("%c Flo-rite Seed Firmers distributed by THUNDERSTRUCK AG (https://thunderstruckag.com/)","font-weight: bold; color: #000700;");
+console.log("%c Duck Foot distributed by THUNDERSTRUCK AG (https://thunderstruckag.com/)","font-weight: bold; color: #000700;");
 console.log("%c ----------------------------------------------------------------------------------------------","color: #000700;");
 
     
