@@ -1,0 +1,29 @@
+// Colours
+$primary: #FFDD4F;
+$secondary: #F0A01F;
+$light: #f2f2f2;
+$grey: #b3b3b3;
+$dark: #434343;
+$black: #000000;
+$white: #ffffff;
+
+$caution: #FFDD4F;
+$danger: #EB5454;
+$success: #7FAC59;
+
+// Fonts
+$slab: "museo-slab", serif;
+$sans: "akagi-pro", sans-serif;
+$smallfont: 0.85em;
+
+@import "compass/css3";
+@import 'reset';
+@import 'global';
+@import 'forms';
+@import 'header';
+@import 'footer';
+@import 'modelviewer';
+@import 'print';
+
+// Get Adobe Typekit fonts
+@import url("https://use.typekit.net/mdd5pkv.css");

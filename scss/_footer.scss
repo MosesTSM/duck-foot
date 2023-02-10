@@ -1,0 +1,64 @@
+/* -------------------------------------------------------------------------------------------- */
+/* Footer ---------------------------------------------- */
+/* -------------------------------------------------------------------------------------------- */
+footer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  z-index: 99;
+  background: $black;
+  color: $primary;
+}
+.footer-wrapper {z-index: 2;}
+footer a {color: $primary;}
+footer a:hover {color: $white;}
+
+
+/* -------------------------------------------------------------------------------------------- */
+/* Footer Icon ---------------------------------------------- */
+/* -------------------------------------------------------------------------------------------- */
+svg.footer-icon {
+  position: relative;
+  margin-bottom: 16px;
+}
+svg.footer-icon polygon {
+  fill: $secondary;
+  transform: translateX(0);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+svg.footer-icon:hover polygon {
+  transform: translateX(-6px);
+}
+svg.footer-icon path {
+  fill: $white;
+  transform: translateX(0);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+svg.footer-icon:hover path {
+  transform: translateX(6px);
+}
+
+
+/* --------------------------------------------------------------------
+// Website by TSM
+-------------------------------------------------------------------- */
+#website-by-tsm {position: relative; display: inline-block; height: 18px; transform: translateY(5px);}
+#website-by-tsm #tsm-credit-badge {position: relative;}
+#website-by-tsm #tsm-credit-badge polygon {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+#website-by-tsm .tsm-badge-bolt {fill: $white;}
+#website-by-tsm .tsm-badge-uprights {fill: #C12032;}
+#website-by-tsm .tsm-badge-upright-left {transform: translateX(0);}
+#website-by-tsm .tsm-badge-upright-right {transform: translateX(0);}
+#website-by-tsm:hover .tsm-badge-upright-left {transform: translateX(-2px);}
+#website-by-tsm:hover .tsm-badge-upright-right {transform: translateX(2px);}

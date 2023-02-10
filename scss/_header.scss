@@ -1,0 +1,509 @@
+/* --------------------------------------------------------------------------------------- */
+/* HEADER ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+#header-spacer {width: 100%; height: 120px; background: $black;}
+.header-spacer {display: none;}
+
+header {
+	position: fixed;
+  top: 0;
+  left: 0;
+	display: block;
+	width: 100%;
+  z-index: 101;
+  background: $black;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* HEADER LOGO ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+header .header-logo-link {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 334px;
+  height: 68px;
+  transform: translateY(-50%);
+}
+header.scrolled-header .header-logo-link {height: 39.7px;}
+
+.header-logo,
+svg.header-logo {display: block;}
+svg.header-logo .logo-colour {
+  fill: $primary;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+svg.header-logo .logo-default {fill: $white;}
+a.header-logo-link:hover svg.header-logo .logo-colour {fill: $secondary;}
+
+svg.header-logo .logo-seeds path:first-child {
+  transform: translateY(0); 
+  opacity: 1;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+header.scrolled-header svg.header-logo .logo-seeds path:first-child {
+  transform: translateY(-8px); 
+  opacity: 0;
+}
+.header-logo-link:hover svg.header-logo .logo-seeds path:first-child {transform: translateY(2px);}
+
+
+svg.header-logo .logo-seeds path:nth-child(2) {
+  transform: translateY(0); 
+  opacity: 1;
+  -webkit-transition: all 0.25s ease 0.25s;
+  -moz-transition: all 0.25s ease 0.25s;
+  -o-transition: all 0.25s ease 0.25s;
+  transition: all 0.25s ease 0.25s;
+}
+.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(2) {transform: translateY(2px);}
+header.scrolled-header svg.header-logo .logo-seeds path:nth-child(2) {
+  transform: translateY(-8px); 
+  opacity: 0;
+  -webkit-transition: all 0.25s eases;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+svg.header-logo .logo-seeds path:nth-child(3) {
+  transform: translateY(0); 
+  opacity: 1;
+  -webkit-transition: all 0.25s ease 0.5s;
+  -moz-transition: all 0.25s ease 0.5s;
+  -o-transition: all 0.25s ease 0.5s;
+  transition: all 0.25s ease 0.5s;
+}
+.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(3) {transform: translateY(2px);}
+header.scrolled-header svg.header-logo .logo-seeds path:nth-child(3) {
+  transform: translateY(-8px); 
+  opacity: 0;
+  -webkit-transition: all 0.25s eases;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+svg.header-logo .logo-seeds path:nth-child(4) {
+  transform: translateY(0); 
+  opacity: 1;
+  -webkit-transition: all 0.25s ease 0.75s;
+  -moz-transition: all 0.25s ease 0.75s;
+  -o-transition: all 0.25s ease 0.75s;
+  transition: all 0.25s ease 0.75s;
+}
+.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(4) {transform: translateY(2px);}
+header.scrolled-header svg.header-logo .logo-seeds path:nth-child(4) {
+  transform: translateY(-8px); 
+  opacity: 0;
+  -webkit-transition: all 0.25s eases;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+svg.header-logo .logo-seeds path:nth-child(5) {
+  transform: translateY(0); 
+  opacity: 1;
+  -webkit-transition: all 0.25s ease 1s;
+  -moz-transition: all 0.25s ease 1s;
+  -o-transition: all 0.25s ease 1s;
+  transition: all 0.25s ease 1s;
+}
+.header-logo-link:hover svg.header-logo .logo-seeds path:nth-child(5) {transform: translateY(2px);}
+header.scrolled-header svg.header-logo .logo-seeds path:nth-child(5) {
+  transform: translateY(-8px); 
+  opacity: 0;
+  -webkit-transition: all 0.25s eases;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+svg.header-logo .logo-subtext {transform: translateY(0); opacity: 1;}
+header.scrolled-header svg.header-logo .logo-subtext {transform: translateY(-8px); opacity: 0;}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* HEADER NAV ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+header nav {
+  position: relative;
+  z-index: 49;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+  width: calc(100% - 384px);
+  margin: 0 0 0 auto;
+}
+header ul,
+header .nav-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+header ul li {display: inline-block;}
+header ul li a,
+header a.nav-button {
+  overflow: hidden;
+  display: block;
+  padding: 48px 11px 48px 0;
+  margin: 0 0 0 18px;
+  font-family: $sans;
+  font-size: 24px;
+  color: $white;
+  text-transform: uppercase;
+  line-height: 1em;
+}
+header.scrolled-header ul li a,
+header.scrolled-header a.nav-button {padding-top: 18px; padding-bottom: 18px;}
+header ul li a:hover {color: $secondary !important;}
+
+header a.nav-button {
+  display: inline-block;
+  color: $secondary;
+}
+header a.nav-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: 16px;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.4.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 18 4' style='enable-background:new 0 0 18 4%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23F32735%3B%7D%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M7.4 2c0 0-2.4 2-3.7 2S0 2 0 2s2.4-2 3.7-2S7.4 2 7.4 2z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: round;
+  background-position: left center;
+  filter: brightness(1);
+  -webkit-transition: all 0.25s eases;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+header a.nav-button:hover:after {filter: brightness(500%);}
+
+header a.nav-button.phone-link {padding-left: 18px;}
+header a.nav-button.phone-link svg {
+  fill: $secondary;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: block;
+  width: 13px;
+  height: 20.22px;
+  transform: translateY(-44%);
+}
+header a.nav-button.phone-link span.phone-link-call {display: none;}
+header a.nav-button.phone-link span.phone-link-number {display: inline;}
+
+
+/* Dropdowns ---------------------------------------------- */
+header ul li:last-child ul {right: 0; margin: 0;}
+
+header ul li:hover > a {color: $primary;}
+header ul ul {display: none;}
+  header ul li:hover > ul {display: block;}
+
+header ul li ul {
+  position: absolute;
+  min-width: 256px;
+  padding: 0;
+  text-align: left;
+  z-index: 15;
+}
+header ul li ul li {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: $black;
+}
+header ul li ul li:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  display: block;
+  width: calc(100% - 32px);
+  height: 4px;
+  margin-top: 8px;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.4.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 18 4' style='enable-background:new 0 0 18 4%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23F32735%3B%7D%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M7.4 2c0 0-2.4 2-3.7 2S0 2 0 2s2.4-2 3.7-2S7.4 2 7.4 2z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: round;
+  background-position: left center;
+  filter: brightness(500%);
+  -webkit-transition: all 0.25s eases;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+header ul li ul li:hover:after {filter: brightness(1);}
+header ul li ul li a {
+  z-index: 2;
+  display: block;
+  margin: 0;
+  padding: 8px 16px 24px;
+  width: 100%;
+}
+header.scrolled-header ul li ul li a {padding-top: 8px; padding-bottom: 24px;}
+header ul li ul li a:hover {
+  color: $secondary;
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* MOBILE ADJUSTMENTS ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+.mobile-nav-buttons {display: none;}
+.responsive-menu {display: none;}
+.mobile-overlay {display: none;}
+.mobile-nav-controls {display: none;}
+header a.hamburger.nav-button  {display: none;}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* Mobile Nav ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+/* mobile menu active ------------------------- */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  width: 0;
+  height: 100%;
+  background: rgba($secondary,0.7);
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.mobile-overlay-on {width: 100%;}
+
+.responsive-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1003;
+  display: block;
+  width: 360px;
+  height: 100%;
+  background: rgba($black,1);
+  transform: translateX(400px);
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.responsive-menu-show {transform: translateX(0) !important;}
+
+.mobile-nav-controls {
+  position: fixed;
+  left: -25px;
+  top: 25px;
+  z-index: 1005;
+  display: block;
+}
+.close-nav, .back-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  transform: translateX(0);
+}
+.close-nav-show, .back-nav-show {transform: translateX(78px);}
+.close-nav svg, .back-nav svg {display: block; fill: $white;}
+.close-nav:hover svg, .back-nav:hover svg {display: block; fill: $secondary;}
+
+
+/* main mobile menu list stying ------------------------- */
+.responsive-menu ul {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  background: none;
+}
+.responsive-menu ul li {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid $secondary;
+}
+.responsive-menu ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: $white;
+}
+.responsive-menu ul li a:hover {text-indent: 12px; color: $primary;}
+.responsive-menu ul#mobile-main-menu li a {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  margin: 0;
+  border: none;
+  background: none; 
+  font-size: 1.5em;
+  font-weight: 400; 
+  text-transform: initial;
+  letter-spacing: 0.025em;
+}
+.responsive-menu ul#mobile-secondary-menu {background: rgba($primary,0.65);}
+.responsive-menu ul#mobile-secondary-menu li {border-bottom: 1px solid $black;}
+.responsive-menu ul#mobile-secondary-menu li a {padding-top: 8px; padding-bottom: 8px;}
+
+.responsive-menu ul li.menu-item-has-children a:before {display: none;}
+.responsive-menu ul li.menu-item-has-children a:after {
+  content: '';
+  float: right;
+  position: relative;
+  top: 11px;
+  width: 0; 
+  height: 0; 
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 8px solid $primary;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+
+/* sub mobile menu list stying ------------------------- */
+.responsive-menu ul ul {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background: $secondary;
+  transform: translateX(400px);
+  z-index: 98;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.responsive-menu ul ul.active-submenu {transform: translateX(0) !important;}
+li.menu-item-has-children ul a:after {display: none;}
+.responsive-menu ul#mobile-main-menu ul li {border-color: $black;}
+.responsive-menu ul#mobile-main-menu ul li a {
+  font-size: 1.25em;
+  letter-spacing: initial;
+  line-height: 1.25em;
+}
+.responsive-menu ul#mobile-main-menu ul li a:hover {}
+
+/* -------------------------------------------------------------- */
+/* End Mobile Menu ------------------------------- */
+/* -------------------------------------------------------------- */
+
+
+
+@media screen and (max-width: 1300px) {
+
+  /* Logo and nav ------------------------- */
+  #header-spacer {height: 117px;}
+  header .header-logo-link,
+  .header-logo, svg.header-logo {
+    width: 240px;
+    height: 48.86px;
+  }
+  header.scrolled-header .header-logo-link {height: 28.53px;}
+  header nav {width: calc(100% - 264px);}
+  header ul li a, 
+  header a.nav-button {
+    font-size: 21px;
+  }
+
+}
+
+
+
+@media screen and (max-width: 1080px) {
+
+  /* adjust header for mobile ------------------------- */
+  #header-spacer {height: 102px;}
+
+  header ul {display: none !important;}
+  header a.hamburger.nav-button {display: inline-block;}
+
+  header a.nav-button {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  header.scrolled-header a.nav-button {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  header a.nav-button:after {
+    position: relative;
+    top: initial;
+    width: calc(100% + 11px);
+    margin-top: 5px;
+  }
+
+  header a.nav-button.phone-link {padding-left: 0;}
+  header a.nav-button.phone-link span {padding-left: 18px;}
+  header a.nav-button.phone-link svg {width: 11px; height: 17.11px; transform: translateY(-12px);}
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+  /* Top and Bottom spacing adjust ------------------------------- */
+  #header-spacer {height: 84.86px;}
+  footer .wrapper {padding-bottom: 60px;}
+
+  /* Logo ------------------------------- */
+  header .header-logo-link {
+    position: relative;
+    top: initial;
+    left: initial;
+    display: block;
+    margin: 18px auto;
+    transform: translateY(0);
+  }
+  header.scrolled-header .header-logo-link {margin: 8px auto;}
+
+  /* Mobile nav ---------------------------------------------- */
+  header nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    background: $black;
+    text-align: center;
+  }
+  header .nav-buttons {display: inline-block;}
+  header a.nav-button {padding-top: 12px; padding-bottom: 12px;}
+  header a.nav-button:first-child {margin-left: 0;}
+  header a.nav-button.phone-link span.phone-link-call {display: inline;}
+  header a.nav-button.phone-link span.phone-link-number {display: none;}
+
+  .responsive-menu {width: 280px; transform: translateX(320px);}
+  .responsive-menu ul ul {width: 270px; transform: translateX(320px);}
+
+
+}
