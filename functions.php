@@ -95,13 +95,21 @@ add_theme_support( 'post-thumbnails' );
 
 
 // ----------------------------------------------------------------------------------------
+// Custom Image sizes
+// ----------------------------------------------------------------------------------------
+add_image_size( 'open-graph', 1200, 630, true );
+add_image_size( 'twitter', 300, 157, true );
+
+
+// ----------------------------------------------------------------------------------------
 // Register Menus
 // ----------------------------------------------------------------------------------------
 function register_theme_menus() {
 	register_nav_menus(
 		array(
 			'left-nav' 	=> __( 'Left Nav' ),
-            'right-nav'  => __( 'Right Nav' )
+            'right-nav'  => __( 'Right Nav' ),
+            'footer-nav'  => __( 'Footer Nav' )
 		)
 	);
 }

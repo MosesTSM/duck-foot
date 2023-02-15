@@ -14,7 +14,7 @@
 {
 	"@context": "https://schema.org",
 	"@type": "WebPage",
-	"name": "Flo-rite Seed Firmers: <?php echo $name; ?>",
+	"name": "Duck Foot: <?php echo $name; ?>",
 	"url": "<?php echo $url; ?>",
 	"description": "<?php echo $excerpt; ?>",
 	"image": "<?php echo $thumb_url; ?>",
@@ -23,7 +23,7 @@
 
 
 <?php /* Facebook and Twitter Open Graph markup */ ?>
-<meta property="og:site_name" content="Flo-rite Seed Firmers" />
+<meta property="og:site_name" content="Duck Foot Parts Inc." />
 <meta property="og:title" content="<?php the_title(); ?>" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="<?php echo $thumb_url; ?>" />

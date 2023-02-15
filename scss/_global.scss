@@ -24,22 +24,37 @@ body {
   padding: 0;
   height: 100%;
   font-family: $slab;
-  font-size: 21px;
-  line-height: 1.6em;
+  font-size: 14px;
+  line-height: $lineheight;
   font-weight: 400;
   background: $primary;
   color: $black;
 }
+body::-webkit-scrollbar {width: 0;}
 #container {
   position: relative;
   width: 100%;
   background: $white;
   z-index: 2;
 }
-main {background: $white;}
-section, div {position: relative;}
-
-.phone-link {pointer-events: none;}
+main {
+  display: block;
+  position: relative;
+  z-index: 2;
+  background: $white;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+section, div {
+  position: relative;
+  display: block;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
 
 
 /* -------------------------------------------------------------------------------------------- */
@@ -61,16 +76,23 @@ section, div {position: relative;}
 .thin-wrapper {max-width: 980px;}
 .xthin-wrapper {max-width: 750px;}
 .wrapper-full {width: 100%;}
+.mobile-full-wrapper {width: 100%;}
 
 .bg-white {background: $white;}
-.bg-primary {background: $primary;}
+.bg-light {background: $light;}
+.bg-grey {background: $grey;}
+.bg-dark {background: $dark; color: $white;}
 .bg-black {background: $black; color: $white;}
+.bg-primary {background: $primary;}
 .bg-secondary {background: $secondary;}
 
 section.bg-white + section.bg-white {padding-top: 0;}
+section.bg-light + section.bg-light {padding-top: 0;}
 section.bg-grey + section.bg-grey {padding-top: 0;}
+section.bg-dark + section.bg-dark {padding-top: 0;}
 section.bg-black + section.bg-black {padding-top: 0;}
 section.bg-primary + section.bg-primary {padding-top: 0;}
+section.bg-secondary + section.bg-secondary {padding-top: 0;}
 
 .border-bottom {border-bottom: 1px solid;}
 .border-top {border-top: 1px solid;}
@@ -80,26 +102,28 @@ section.bg-primary + section.bg-primary {padding-top: 0;}
 .border-y {border-top: 1px solid; border-bottom: 1px solid;}
 .border {border: 1px solid;}
 .border-white {border-color: $white;}
-.border-primary {border-color: $primary;}
+.border-light {border-color: $light;}
+.border-grey {border-color: $grey;}
+.border-dark {border-color: $dark;}
 .border-black {border-color: $black;}
+.border-primary {border-color: $primary;}
 .border-secondary {border-color: $secondary;}
-.border-tertiary {border-color: $secondary;}
 
-.xsmall-padding {padding-top: 2vw; padding-bottom: 2vw;}
-.xsmall-padding-top {padding-top: 2vw;}
-.xsmall-padding-bottom {padding-bottom: 2vw;}
-.small-padding {padding-top: 4vw; padding-bottom: 4vw;}
-.small-padding-top {padding-top: 4vw;}
-.small-padding-bottom {padding-bottom: 4vw;}
-.medium-padding {padding-top: 6vw; padding-bottom: 6vw;}
-.medium-padding-top {padding-top: 6vw;}
-.medium-padding-bottom {padding-bottom: 6vw;}
-.large-padding {padding-top: 8vw; padding-bottom: 8vw;}
-.large-padding-top {padding-top: 8vw;}
-.large-padding-bottom {padding-bottom: 8vw;}
-.xlarge-padding {padding-top: 10vw; padding-bottom: 10vw;}
-.xlarge-padding-top {padding-top: 10vw;}
-.xlarge-padding-bottom {padding-bottom: 10vw;}
+.xsmall-padding {padding-top: 15px; padding-bottom: 15px;}
+.xsmall-padding-top {padding-top: 15px;}
+.xsmall-padding-bottom {padding-bottom: 15px;}
+.small-padding {padding-top: 25px; padding-bottom: 25px;}
+.small-padding-top {padding-top: 25px;}
+.small-padding-bottom {padding-bottom: 25px;}
+.medium-padding {padding-top: 35px; padding-bottom: 35px;}
+.medium-padding-top {padding-top: 35px;}
+.medium-padding-bottom {padding-bottom: 35px;}
+.large-padding {padding-top: 45px; padding-bottom: 45px;}
+.large-padding-top {padding-top: 45px;}
+.large-padding-bottom {padding-bottom: 45px;}
+.xlarge-padding {padding-top: 60px; padding-bottom: 60px;}
+.xlarge-padding-top {padding-top: 60px;}
+.xlarge-padding-bottom {padding-bottom: 60px;}
 
 .side-padding {padding-left: 5%; padding-right: 5%;}
 
@@ -107,45 +131,58 @@ section.bg-primary + section.bg-primary {padding-top: 0;}
 .center-align {text-align: center;}
 .right-align {text-align: right;}
 
-svg {-webkit-transition: all 0.25s ease; -moz-transition: all 0.25s ease; -o-transition: all 0.25s ease; transition: all 0.25s ease;}
-
 
 /* --------------------------------------------------------------------------------------- */
 /* Text Styles ---------------------------------------------- */
 /* --------------------------------------------------------------------------------------- */
+.left-align {text-align: left;}
 .center-align {text-align: center;}
+.right-align {text-align: right;}
 .uppercase {text-transform: uppercase;}
 .lowercase {text-transform: initial;}
 
-p {margin: 0 0 18px;}
+p {margin: 0 0 14px;}
 p:last-child {margin-bottom: 0;}
 
-.large-text {font-size: 1.25em; line-height: 1.55em;}
-.small-text {font-size: $smallfont; line-height: 1.55em;}
+.large-text {font-size: $largefont; line-height: $lineheight;}
+.small-text {font-size: $smallfont; line-height: $lineheight;}
 
 .white-text {color: $white;}
 .black-text {color: $black;}
-.highlight {color: $secondary !important;}
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   position: relative;
-  display: block;
-  font-weight: 700;
+  display: inline;
+  border-bottom: 4px solid transparent;
+  background-image: linear-gradient($primary,$primary);
+  background-size: 100% 16px;
+  background-repeat: no-repeat;
+  background-position: left calc(100% + 0px);
+  font-weight: 500;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-h1, h2, h3, h4 {color: $secondary;}
-.bg-black h1, .bg-black h2, .bg-black h3, .bg-black h4 {color: $white;}
-.bg-secondary h1, .bg-secondary h2, .bg-secondary h3, .bg-secondary h4 {color: $white;}
-.bg-tertiary h1, .bg-tertiary h2, .bg-tertiary h3, .bg-tertiary h4 {color: $white;}
-
-h1, h2 {margin-bottom: 24px;}
+.bg-primary h1, .bg-primary h2 {background-image: linear-gradient($white,$white);}
+.bg-secondary h1, .bg-secondary h2 {background-image: linear-gradient($white,$white);}
+.bg-grey h1, .bg-grey h2 {background-image: linear-gradient($light,$light);}
+.bg-dark h1, .bg-dark h2 {color: $primary; background-image: linear-gradient($black,$black);}
+.bg-black h1, .bg-black h2 {color: $primary; background-image: linear-gradient($dark,$dark);}
+h3, h4, h5, h6 {
+  position: relative;
+  display: block;
+  font-weight: 500;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+h1, h2, .title-wrap {margin-bottom: 24px;}
 h3 {margin-bottom: 12px;}
 h4, h5, h6 {margin-bottom: 0;}
-h1, h2, h3 {margin-top: 48px;}
-h4, h5, h6 {margin-top: 32px;}
+h1, h2, h3, .title-wrap {font-family: $slab; margin-top: 48px;}
+h4, h5, h6 {font-family: $sans; margin-top: 32px;}
 h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6,
 h2 + h3, h2 + h4, h2 + h5, h2 + h6,
 h3 + h2, h3 + h4, h3 + h5, h3 + h6,
@@ -154,11 +191,10 @@ h5 + h2, h5 + h3, h5 + h4, h5 + h6,
 h6 + h2, h6 + h3, h6 + h4, h6 + h5 {
   margin-top: 0;
 }
-h1, h2 {font-size: 3.5em; line-height: 1em;}
-.long-text h2 {font-size: 2.5em;}
-h3 {font-size: 1.65em; line-height: 1.15em;}
-h4 {font-size: 1.35em; line-height: 1.25em;}
-h5 {font-size: 1.05em; line-height: 1.45em; text-transform: uppercase;}
+h1, h2 {font-size: 2.125em; line-height: 1.125em;}
+h3 {font-size: 1.875em; line-height: 1.05em;}
+h4 {font-size: 1.333em; line-height: 1.25em;}
+h5 {font-size: 1.125em; line-height: 1.15em; text-transform: uppercase;}
 h6 {font-size: 1.05em; line-height: 1.45em;}
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {margin-top: 0;}
@@ -172,11 +208,6 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   color: $primary;
 }
 
-.heading-wrapper {margin-top: 48px; margin-bottom: 18px;}
-.heading-wrapper h3 {margin-top: 0; margin-bottom: 0;}
-.heading-wrapper:first-child {margin-top: 0;}
-.heading-wrapper:last-child {margin-bottom: 0;}
-
 h2 + ul, h3 + ul, h4 + ul,
 h2 + ol, h3 + ol, h4 + ol {margin-top: 0 !important;}
 
@@ -189,34 +220,36 @@ h2 + ol, h3 + ol, h4 + ol {margin-top: 0 !important;}
 /* --------------------------------------------------------------------------------------- */
 /* Shared styles ---------------------------------------------- */
 ul, ol {margin: 0; padding: 0;}
-.long-text ul, ol {margin: 24px 0;}
+.long-text ul, ol {margin: 18px 0;}
 .long-text ul:first-child, ol:first-child {margin-top: 0;}
 .long-text ul:last-child, ol:last-child {margin-top: 0;}
 .long-text ul li, ol li {
   display: block;
   position: relative;
-  margin-left: 40px;
+  margin-left: 48px;
   margin-bottom: 8px;
 }
 .long-text ul li:last-child, 
 ol li:last-child {margin-bottom: 0;}
 
+
 /* UL styles ---------------------------------------------- */
 .long-text ul li {list-style: none;}
-.long-text ul li:before {
+.long-text ul:not(.no-bullets) li:before {
   content: url(../images/bullet.svg);
   position: absolute;
   left: -28px;
-  width: 12px;
-  height: 8px;
-  transform: translateY(-50%);
+  width: 8px;
+  height: 12px;
+  transform: translateY(2px) scale(0.75);
 }
+.long-text ul.no-bullets li {}
 .long-text ul ul {margin-top: 5px;}
 
 .bg-secondary .long-text ul li:before,
-.bg-secondary.long-text ul li:before {filter: brightness(0.1);}
-.bg-tertiary .long-text ul li:before,
-.bg-tertiary.long-text ul li:before {filter: brightness(10);}
+.bg-secondary.long-text ul li:before,
+.bg-grey .long-text ul li:before,
+.bg-grey.long-text ul li:before {filter: brightness(0.1);}
 
 
 /* OL styles ---------------------------------------------- */
@@ -225,9 +258,9 @@ ol li {counter-increment: item;}
 ol li:before {
   content: counters(item, '.') ' ';
   position: relative;
-  top: 0.05em;
+  top: 0em;
   float: left;
-  margin-left: -25px;
+  margin-left: -28px;
   color: $secondary;
   font-size: $smallfont; 
   font-weight: 500;
@@ -237,8 +270,6 @@ ol li:before {
 
 .bg-primary ol li:before,
 .bg-secondary ol li:before {color: $black;}
-.bg-tertiary ol li:before {color: $white;}
-.bg-black ol li:before {color: $primary;}
 
 
 /* --------------------------------------------------------------------------------------- */
@@ -276,34 +307,23 @@ a:hover {
   position: relative;
   color: $black;
   border-bottom: 4px solid transparent;
-  background-image: linear-gradient($secondary,$secondary);
+  background-image: linear-gradient(to right, $secondary,$primary);
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: left calc(100% + 1px);
 }
-.long-text a:not(.button):hover {color: $secondary; background-position: left calc(100% + 4px);}
+.long-text a:not(.button):hover {background-size: 100% 9px;}
 
+.bg-dark .long-text a:not(.button),
+.bg-dark.long-text a:not(.button),
 .bg-black .long-text a:not(.button),
 .bg-black.long-text a:not(.button) {color: $white;}
-
+.bg-grey .long-text a:not(.button),
+.bg-grey.long-text a:not(.button),
 .bg-secondary .long-text a:not(.button),
-.bg-secondary.long-text a:not(.button) {background-image: linear-gradient($black,$black);}
-.bg-secondary .long-text a:not(.button):hover,
-.bg-secondary.long-text a:not(.button):hover {color: $black;}
-
+.bg-secondary.long-text a:not(.button) {background-image: linear-gradient($primary,$primary);}
 .bg-primary .long-text a:not(.button),
-.bg-primary.long-text a:not(.button) {background-image: linear-gradient($black,$black);}
-.bg-primary .long-text a:not(.button):hover,
-.bg-primary.long-text a:not(.button):hover {color: $black;}
-
-.bg-tertiary .long-text a:not(.button),
-.bg-tertiary.long-text a:not(.button) {background-image: linear-gradient($white,$white);}
-.bg-tertiary .long-text a:not(.button),
-.bg-tertiary.long-text a:not(.button) {color: $white;}
-.bg-tertiary .long-text a:not(.button):hover,
-.bg-tertiary.long-text a:not(.button):hover {color: $white;}
-
-
+.bg-primary.long-text a:not(.button) {background-image: linear-gradient($secondary,$secondary);}
 
 
 
@@ -312,38 +332,48 @@ a:hover {
   position: relative;
   z-index: 1;
   display: block;
-  margin: 50px 0;
+  margin: 0;
   width: 100%; 
 }
-.buttons-wrapper:first-child {margin-top: 0;}
-.buttons-wrapper:last-child {margin-bottom: 0;}
+.buttons-wrapper.left-buttons {text-align: left;}
 .buttons-wrapper.center-buttons {text-align: center;}
 .buttons-wrapper.right-buttons {text-align: right;}
-
-.large-buttons a.button {font-size: 1.75em;}
-.small-buttons a.button {font-size: 1.15em;}
 
 a.button {
   overflow: hidden;
   display: inline-block;
-  padding: 5px 40px 10px;
+  padding: 10px 40px;
   margin: 0 0 0 12px;
-  border: 3px solid $secondary;
-  border-radius: 12px;
-  background: $secondary;
+  border: 1px solid $black;
+  border-radius: 4px;
+  background: none;
   font-family: $sans;
-  font-size: 1.45em;
   font-weight: 700;
-  color: $white;
   text-transform: uppercase;
   line-height: 1em;
 }
-a.button:hover {background: transparent; color: $secondary;}
-
-.buttons-wrapper.absolute-buttons {
+a.button:hover {color: $primary;}
+a.button:after {
+  content: '';
   position: absolute;
-  bottom: 2vw;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: $black;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
+a.button:hover:after {opacity: 1;}
+
+.small-buttons a.button {font-size: 1.15em;}
+.large-buttons a.button {font-size: 1.75em;}
+.block-buttons a.button {display: block; margin: 0 0 6px; padding: 10px 16px;}
 
 .buttons-wrapper a.button {margin: 3px 12px 3px 0;}
 .buttons-wrapper.center-buttons a.button {margin: 3px 6px;}
@@ -357,82 +387,114 @@ a.button:hover {background: transparent; color: $secondary;}
 .bg-tertiary a.button {border-color: $white; background: $white; color: $secondary;}
 .bg-tertiary a.button:hover {background: $secondary; color: $white;}
 
-
-
-/* --------------------------------------------------------------------------------------- */
-/* Main Content ---------------------------------------------- */
-/* --------------------------------------------------------------------------------------- */
-main {
+.button-duck-walk {
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  z-index: -1;
   display: block;
-  position: relative;
-  z-index: 2;
+  width: 800px;
+  transform: translateY(-50%);
+  opacity: 0;
+  text-align: left;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-.content {
-	position: relative;
-	display: block;
-	margin: 0 auto;
-  background: $white;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+a.button:hover .button-duck-walk {opacity: 1;}
+.button-duck-walk svg {
+  display: inline-block; 
+  vertical-align: middle; 
+  width: 20px; 
+  height: 30px;
+  margin-right: 12px;
+  opacity: 0;
 }
-section {
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
+.button-duck-walk svg:nth-child(even) {transform: translateY(-8px);}
+.button-duck-walk svg:nth-child(odd) {transform: translateY(8px);}
 
-
-
-
-@media screen and (max-width: 1000px) {
-
-  .mobile-full-wrapper {width: 100%;}
-
-}
-
-
-
-@media screen and (max-width: 768px) {
-
-  /* General ---------------------------------------------- */
-  body {font-size: 16px;} 
-  .phone-link {pointer-events: initial;}
-
-  /* Lists ---------------------------------------------- */
-  .long-text ul li:before {
-    left: -28px;
-    width: 8px;
-    height: 6px;
-  }
-
+a.button:hover .button-duck-walk svg:nth-child(1) {animation: duckwalk 1.5s 1 0.25s;}
+a.button:hover .button-duck-walk svg:nth-child(2) {animation: duckwalk 1.5s 1 0.5s;}
+a.button:hover .button-duck-walk svg:nth-child(3) {animation: duckwalk 1.5s 1 0.75s;}
+a.button:hover .button-duck-walk svg:nth-child(4) {animation: duckwalk 1.5s 1 1s;}
+a.button:hover .button-duck-walk svg:nth-child(5) {animation: duckwalk 1.5s 1 1.25s;}
+a.button:hover .button-duck-walk svg:nth-child(6) {animation: duckwalk 1.5s 1 1.5s;}
+a.button:hover .button-duck-walk svg:nth-child(7) {animation: duckwalk 1.5s 1 1.75s;}
+a.button:hover .button-duck-walk svg:nth-child(8) {animation: duckwalk 1.5s 1 2s;}
+a.button:hover .button-duck-walk svg:nth-child(9) {animation: duckwalk 1.5s 1 2.25s;}
+a.button:hover .button-duck-walk svg:nth-child(10) {animation: duckwalk 1.5s 1 2.5s;}
+a.button:hover .button-duck-walk svg:nth-child(11) {animation: duckwalk 1.5s 1 2.75s;}
+a.button:hover .button-duck-walk svg:nth-child(12) {animation: duckwalk 1.5s 1 3s;}
+@keyframes duckwalk {
+  0% {opacity: 1;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
+.bg-primary .button-duck-walk svg,
+footer .button-duck-walk svg,
+header .button-duck-walk svg {fill: $dark;}
 
 
-@media screen and (max-width: 640px) {
+
+.no-link {pointer-events: none;}
+
+
+
+
+@media screen and (min-width: 540px) {
+
+  body {font-size: 16px;}
+  h1, h2 {background-size: 100% 18px;}
+  .long-text ul li:before {transform: translateY(1px) scale(0.825);}
+  .long-text a:not(.button):hover {background-size: 100% 10px;}
+
+}
+
+
+@media screen and (min-width: 640px) {
 
   /* Modifiers ---------------------------------------------- */
-  .xsmall-padding {padding-top: 15px; padding-bottom: 15px;}
-  .xsmall-padding-top {padding-top: 15px;}
-  .xsmall-padding-bottom {padding-bottom: 15px;}
-  .small-padding {padding-top: 25px; padding-bottom: 25px;}
-  .small-padding-top {padding-top: 25px;}
-  .small-padding-bottom {padding-bottom: 25px;}
-  .medium-padding {padding-top: 35px; padding-bottom: 35px;}
-  .medium-padding-top {padding-top: 35px;}
-  .medium-padding-bottom {padding-bottom: 35px;}
-  .large-padding {padding-top: 45px; padding-bottom: 45px;}
-  .large-padding-top {padding-top: 45px;}
-  .large-padding-bottom {padding-bottom: 45px;}
-  .xlarge-padding {padding-top: 60px; padding-bottom: 60px;}
-  .xlarge-padding-top {padding-top: 60px;}
-  .xlarge-padding-bottom {padding-bottom: 60px;}
+  .xsmall-padding {padding-top: 2vw; padding-bottom: 2vw;}
+  .xsmall-padding-top {padding-top: 2vw;}
+  .xsmall-padding-bottom {padding-bottom: 2vw;}
+  .small-padding {padding-top: 4vw; padding-bottom: 4vw;}
+  .small-padding-top {padding-top: 4vw;}
+  .small-padding-bottom {padding-bottom: 4vw;}
+  .medium-padding {padding-top: 6vw; padding-bottom: 6vw;}
+  .medium-padding-top {padding-top: 6vw;}
+  .medium-padding-bottom {padding-bottom: 6vw;}
+  .large-padding {padding-top: 8vw; padding-bottom: 8vw;}
+  .large-padding-top {padding-top: 8vw;}
+  .large-padding-bottom {padding-bottom: 8vw;}
+  .xlarge-padding {padding-top: 10vw; padding-bottom: 10vw;}
+  .xlarge-padding-top {padding-top: 10vw;}
+  .xlarge-padding-bottom {padding-bottom: 10vw;}
+
+}
+
+
+@media screen and (min-width: 767px) {
+
+  /* General ---------------------------------------------- */
+  body {font-size: 18px;} 
+  h1, h2 {background-size: 100% 20px;}
+  .long-text ul li:before {transform: translateY(1px) scale(0.9);}
+  ol li:before {top: 0.03em;}
+  .long-text a:not(.button):hover {background-size: 100% 11px;}
+  .phone-link {pointer-events: none;}
+
+}
+
+
+@media screen and (min-width: 1080px) {
+
+  /* General ---------------------------------------------- */
+  body {font-size: 21px;} 
+  h1, h2 {background-size: 100% 24px;}
+  .long-text ul li:before {transform: translateY(-2px) scale(1);}
+  ol li:before {top: 0.01em;}
+  .long-text a:not(.button):hover {background-size: 100% 13px;}
 
 }

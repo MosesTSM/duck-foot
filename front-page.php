@@ -3,9 +3,6 @@
 
 
 
-<?php get_template_part('inc/rich-snippets'); ?>
-
-
 <section id="home-page-hero">
 
 </section>
@@ -29,7 +26,37 @@
 <?php } ?>
 
 
-<?php get_template_part('inc/banner-testimonies'); ?>
+
+<?php if( have_rows('patents','option') ): ?>
+	<section id="patents" class="small-padding bg-light center-align small-text">
+		<div class="wrapper xthin-wrapper">
+			<?php if( get_field('patents_title','option') ): ?>
+				<h5><?php the_field('patents_title','option'); ?></h5>
+			<?php endif; ?>
+
+			<?php while( have_rows('patents','option') ): the_row(); ?>
+				<div class="patent-region">
+					<h6><?php the_sub_field('region'); ?></h6>
+					<?php if( have_rows('patent','option') ): ?>
+						<ul>
+							<?php while( have_rows('patent','option') ): the_row(); ?>
+								<li class="long-text">
+									<?php if( get_field('patent_link','option') ): ?><a href="<?php the_sub_field('patent_link'); ?>"><?php endif; ?>
+									<?php the_sub_field('patent_number'); ?>
+									<?php if( get_field('patent_link','option') ): ?></a><?php endif; ?>
+								</li>
+							<?php endwhile;	?>
+						</ul>
+					<?php endif; ?>
+				</div>
+			<?php endwhile;	?>
+
+			<?php if( get_field('patents_disclaimer','option') ): ?>
+				<p class="long-text"><em><?php the_field('patents_disclaimer','option'); ?></em></p>
+			<?php endif; ?>
+		</div>
+	</section>
+<?php endif; ?>
 
 
 

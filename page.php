@@ -3,9 +3,6 @@
 
 
 
-<?php get_template_part('inc/rich-snippets'); ?>
-
-
 <?php if( '' !== get_post()->post_content ) { ?>
 	<section id="main-content" class="small-padding long-text">		
 		<div class="wrapper thin-wrapper">

@@ -1,7 +1,7 @@
 /* --------------------------------------------------------------------------------------- */
 /* HEADER ---------------------------------------------- */
 /* --------------------------------------------------------------------------------------- */
-#header-spacer {width: 100%; height: 120px; background: $black;}
+#header-spacer {width: 100%; height: 72px; background: $white;}
 .header-spacer {display: none;}
 
 header {
@@ -11,7 +11,6 @@ header {
 	display: block;
 	width: 100%;
   z-index: 101;
-  background: $primary;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
@@ -24,19 +23,45 @@ header {
 /* --------------------------------------------------------------------------------------- */
 header .header-logo-link {
   position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  top: 0;
+  left: 50%;
+  z-index: 51;
+  transform-origin: center top;
+  transform: translate(-50%,0) scale(1);
 }
+header .header-logo-link:hover {transform: translate(-50%,16px) scale(1);}
+.header-logo {display: block; width: 120px; height: 80px;}
 .header-logo .logo-border,
 .header-logo .logo-d,
 .header-logo .logo-f,
 .header-logo .logo-duck,
 .header-logo .logo-foot {fill: $primary;}
+.header-logo .logo-paddle {fill: $black;}
+.header-logo .logo-d,
+.header-logo .logo-f {
+  transform-origin: center center;
+  transform: rotate(0deg) translate(0,0) scale(1);
+}
+.header-logo .logo-duck,
+.header-logo .logo-foot {
+  opacity: 1;
+  transform-origin: center center;
+  transform: translate(0,0);
+}
 
+header.scrolled-header .header-logo-link {transform: translate(-50%,0) scale(0.5);}
+header.scrolled-header .header-logo-link:hover {transform: translate(-50%,8px) scale(0.5);}
+header.scrolled-header .header-logo .logo-duck,
+header.scrolled-header .header-logo .logo-foot {opacity: 0; transform: translate(48px,-48px);}
+header.scrolled-header .header-logo .logo-d {transform: rotate(52.89deg) translate(80px,-30px) scale(1.9);}
+header.scrolled-header .header-logo .logo-f {transform: rotate(52.89deg) translate(0,-120px) scale(1.9);}
 
-
-
+.header-logo-link svg, .header-logo-link svg path, .header-logo-link svg polygon, .header-logo-link svg g {
+  -webkit-transition: all 0.375s ease; 
+  -moz-transition: all 0.375s ease; 
+  -o-transition: all 0.375s ease; 
+  transition: all 0.375s ease;
+}
 
 
 /* --------------------------------------------------------------------------------------- */
@@ -49,71 +74,35 @@ header nav {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
-  width: calc(100% - 384px);
-  margin: 0 0 0 auto;
-}
-header ul,
-header .nav-buttons {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-header ul li {display: inline-block;}
-header ul li a,
-header a.nav-button {
-  overflow: hidden;
-  display: block;
-  padding: 48px 11px 48px 0;
-  margin: 0 0 0 18px;
-  font-family: $sans;
-  font-size: 24px;
-  color: $white;
-  text-transform: uppercase;
+  justify-content: space-between;
+  transform: translateY(0);
+  background: $primary;
   line-height: 1em;
-}
-header.scrolled-header ul li a,
-header.scrolled-header a.nav-button {padding-top: 18px; padding-bottom: 18px;}
-header ul li a:hover {color: $secondary !important;}
-
-header a.nav-button {
-  display: inline-block;
-  color: $secondary;
-}
-header a.nav-button:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 4px;
-  margin-top: 16px;
-  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.4.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 18 4' style='enable-background:new 0 0 18 4%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23F32735%3B%7D%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M7.4 2c0 0-2.4 2-3.7 2S0 2 0 2s2.4-2 3.7-2S7.4 2 7.4 2z'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: round;
-  background-position: left center;
-  filter: brightness(1);
-  -webkit-transition: all 0.25s eases;
+  -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-header a.nav-button:hover:after {filter: brightness(500%);}
-
-header a.nav-button.phone-link {padding-left: 18px;}
-header a.nav-button.phone-link svg {
-  fill: $secondary;
-  position: absolute;
-  left: 0;
-  top: 50%;
+header ul#main-menu-left {margin-left: 12px;}
+header ul#main-menu-right {margin-right: 12px;}
+header ul li {display: block;}
+header ul li a {
+  overflow: hidden;
   display: block;
-  width: 13px;
-  height: 20.22px;
-  transform: translateY(-44%);
+  padding: 40px 24px;
+  margin: 0;
+  color: $black;
+  font-family: $sans;
+  text-transform: uppercase;
+  line-height: 1em;
 }
-header a.nav-button.phone-link span.phone-link-call {display: none;}
-header a.nav-button.phone-link span.phone-link-number {display: inline;}
+header ul li a:hover {color: $secondary !important;}
+
+header.scrolled-header nav {padding-bottom: 0; transform: translateY(-38px);}
+header.scrolled-header nav:hover,
+header.scrolled-header a.header-logo-link:hover ~ nav {padding-bottom: 0; transform: translateY(0);}
+header.scrolled-header ul li a {padding-top: 18px; padding-bottom: 18px;}
+
 
 
 /* Dropdowns ---------------------------------------------- */
@@ -172,54 +161,93 @@ header ul li ul li a:hover {
 /* --------------------------------------------------------------------------------------- */
 /* MOBILE ADJUSTMENTS ---------------------------------------------- */
 /* --------------------------------------------------------------------------------------- */
-.mobile-nav-buttons {display: none;}
 .responsive-menu {display: none;}
 .mobile-overlay {display: none;}
 .mobile-nav-controls {display: none;}
-header a.hamburger.nav-button  {display: none;}
+header ul {display: none;}
+
 
 
 /* --------------------------------------------------------------------------------------- */
 /* Mobile Nav ---------------------------------------------- */
 /* --------------------------------------------------------------------------------------- */
-/* mobile menu active ------------------------- */
+.mobile-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 49;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: $primary;
+}
+.mobile-hide {display: none;}
+.mobile-show {display: block;}
+
+.mobile-nav {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+.mobile-nav a.button.nav-button {
+  position: relative;
+  display: block; 
+  width: 32.3333%;
+  margin: 0;
+  border: 1px solid $black;
+  border-radius: $borderradius;
+  color: $black;
+  font-family: $slab;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+.mobile-nav a.button.nav-button:hover {color: $primary;}
+.mobile-nav a.button.hamburger.active-burger {
+  background: $black;
+  color: $primary;
+}
+.mobile-nav a.button.hamburger span.ham-close {display: none;}
+.mobile-nav a.button.hamburger.active-burger span.ham-close {display: block;}
+.mobile-nav a.button.hamburger span.ham-open {display: block;}
+.mobile-nav a.button.hamburger.active-burger span.ham-open {display: none;}
+
+
+
+/* --------------------------------------------------------------------------------------- */
+/* Mobile menu popup ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+.menu-popup {z-index: 80;}
 .mobile-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1;
   display: block;
-  width: 0;
+  width: 100%;
   height: 100%;
-  background: rgba($secondary,0.7);
+  border: 8px solid $primary;
+  background: rgba($white,0.85);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-.mobile-overlay-on {width: 100%;}
-
-.responsive-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 1003;
-  display: block;
-  width: 360px;
-  height: 100%;
-  background: rgba($black,1);
-  transform: translateX(400px);
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+.mobile-overlay-on {
+  opacity: 1;
+  pointer-events: initial;
 }
-.responsive-menu-show {transform: translateX(0) !important;}
 
+/* mobile close/back button ------------------------- */
 .mobile-nav-controls {
   position: fixed;
-  left: -25px;
-  top: 25px;
+  left: -45px;
+  top: 28px;
   z-index: 1005;
   display: block;
 }
@@ -228,36 +256,67 @@ header a.hamburger.nav-button  {display: none;}
   top: 0;
   left: 0;
   display: block;
+  padding: 8px;
+  border-radius: 50%;
   transform: translateX(0);
+  background: $black;
 }
-.close-nav-show, .back-nav-show {transform: translateX(78px);}
-.close-nav svg, .back-nav svg {display: block; fill: $white;}
-.close-nav:hover svg, .back-nav:hover svg {display: block; fill: $secondary;}
+.close-nav:hover, .back-nav:hover {background: $primary;}
+.close-nav-show, .back-nav-show {transform: translateX(74px);}
+.close-nav svg, .back-nav svg {
+  display: block; 
+  fill: $primary;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.close-nav:hover svg, .back-nav:hover svg {fill: $black;}
 
 
 /* main mobile menu list stying ------------------------- */
+.responsive-menu {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: center bottom;
+  transform: translateY(-50%);
+  pointer-events: none;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.responsive-menu-show {pointer-events: initial;}
 .responsive-menu ul {
   position: relative;
   display: block;
   width: 100%;
   height: auto;
-  background: none;
 }
 .responsive-menu ul li {
   position: relative;
   display: block;
   width: 100%;
-  border-bottom: 1px solid $secondary;
 }
 .responsive-menu ul li a {
   position: relative;
   display: block;
   width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
-  color: $white;
+  padding: 8px 16px;
+  color: transparent;
+  font-size: 3em;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $black;
 }
-.responsive-menu ul li a:hover {text-indent: 12px; color: $primary;}
+.responsive-menu ul li a:hover {background: $primary;}
 .responsive-menu ul#mobile-main-menu li a {
   padding-top: 18px;
   padding-bottom: 18px;
@@ -269,145 +328,104 @@ header a.hamburger.nav-button  {display: none;}
   text-transform: initial;
   letter-spacing: 0.025em;
 }
-.responsive-menu ul#mobile-secondary-menu {background: rgba($primary,0.65);}
-.responsive-menu ul#mobile-secondary-menu li {border-bottom: 1px solid $black;}
-.responsive-menu ul#mobile-secondary-menu li a {padding-top: 8px; padding-bottom: 8px;}
 
-.responsive-menu ul li.menu-item-has-children a:before {display: none;}
-.responsive-menu ul li.menu-item-has-children a:after {
-  content: '';
-  float: right;
-  position: relative;
-  top: 11px;
-  width: 0; 
-  height: 0; 
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 8px solid $primary;
+
+/* animate mobile menu ------------------------- */
+.responsive-menu li {
+  transform: translateY(16px);
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.responsive-menu-show li.mobile-item-slide {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+/* Window Border ------------------------- */
+.window-border {
+  position: fixed; 
+  z-index: 10;
+  background: $primary;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-
-
-/* sub mobile menu list stying ------------------------- */
-.responsive-menu ul ul {
-  display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 350px;
-  height: 100%;
-  background: $secondary;
-  transform: translateX(400px);
-  z-index: 98;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-.responsive-menu ul ul.active-submenu {transform: translateX(0) !important;}
-li.menu-item-has-children ul a:after {display: none;}
-.responsive-menu ul#mobile-main-menu ul li {border-color: $black;}
-.responsive-menu ul#mobile-main-menu ul li a {
-  font-size: 1.25em;
-  letter-spacing: initial;
-  line-height: 1.25em;
-}
-.responsive-menu ul#mobile-main-menu ul li a:hover {}
-
-/* -------------------------------------------------------------- */
-/* End Mobile Menu ------------------------------- */
-/* -------------------------------------------------------------- */
+.window-border-x {width: 8px; height: 100%;}
+.window-border-y {width: 100%; height: 8px;}
+.window-border-top {top: 0; left: 0; z-index: 90;}
+.window-border-right {top: 0; right: 0;}
+.window-border-bottom {bottom: 0; left: 0;}
+.window-border-left {top: 0; left: 0;}
+main section {z-index: 5;}
 
 
 
-@media screen and (max-width: 1300px) {
 
-  /* Logo and nav ------------------------- */
-  #header-spacer {height: 117px;}
-  header .header-logo-link,
-  .header-logo, svg.header-logo {
-    width: 240px;
-    height: 48.86px;
-  }
-  header.scrolled-header .header-logo-link {height: 28.53px;}
-  header nav {width: calc(100% - 264px);}
-  header ul li a, 
-  header a.nav-button {
-    font-size: 21px;
-  }
+@media screen and (min-width: 480px) {
+
+  /* window border ------------------------- */
+  .window-border-x {width: 12px;}
+  .window-border-y {height: 12px;}
+  .mobile-overlay {border-width: 12px;}
+  .mobile-nav {padding: 12px;}
 
 }
 
 
+@media screen and (min-width: 560px) {
 
-@media screen and (max-width: 1080px) {
-
-  /* adjust header for mobile ------------------------- */
-  #header-spacer {height: 102px;}
-
-  header ul {display: none !important;}
-  header a.hamburger.nav-button {display: inline-block;}
-
-  header a.nav-button {
-    padding-top: 36px;
-    padding-bottom: 36px;
-  }
-  header.scrolled-header a.nav-button {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-  header a.nav-button:after {
-    position: relative;
-    top: initial;
-    width: calc(100% + 11px);
-    margin-top: 5px;
-  }
-
-  header a.nav-button.phone-link {padding-left: 0;}
-  header a.nav-button.phone-link span {padding-left: 18px;}
-  header a.nav-button.phone-link svg {width: 11px; height: 17.11px; transform: translateY(-12px);}
+  /* logo ------------------------- */
+  #header-spacer {height: 112px;}
+  .header-logo {display: block; width: 180px; height: 120px;}
 
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 640px) {
 
-  /* Top and Bottom spacing adjust ------------------------------- */
-  #header-spacer {height: 84.86px;}
-  footer .wrapper {padding-bottom: 60px;}
+  /* window border ------------------------- */
+  .window-border-x {width: 16px;}
+  .window-border-y {height: 16px;}
+  .mobile-overlay {border-width: 16px;}
+  .mobile-nav {padding: 16px;}
 
-  /* Logo ------------------------------- */
-  header .header-logo-link {
-    position: relative;
-    top: initial;
-    left: initial;
-    display: block;
-    margin: 18px auto;
-    transform: translateY(0);
+}
+
+
+@media screen and (min-width: 767px) {
+
+  .mobile-hide {display: inline;}
+  .mobile-show {display: none;}
+
+}
+
+
+@media screen and (min-width: 900px) {
+
+  /* logo ------------------------- */
+  header .header-logo-link {transform: translate(-50%,8px) scale(1);}
+
+  /* Mobile Nav ------------------------- */
+  .hamburger {display: none;}
+  header .mobile-nav {display: none;}
+  header ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
   }
-  header.scrolled-header .header-logo-link {margin: 8px auto;}
 
-  /* Mobile nav ---------------------------------------------- */
-  header nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    background: $black;
-    text-align: center;
-  }
-  header .nav-buttons {display: inline-block;}
-  header a.nav-button {padding-top: 12px; padding-bottom: 12px;}
-  header a.nav-button:first-child {margin-left: 0;}
-  header a.nav-button.phone-link span.phone-link-call {display: inline;}
-  header a.nav-button.phone-link span.phone-link-number {display: none;}
+}
 
-  .responsive-menu {width: 280px; transform: translateX(320px);}
-  .responsive-menu ul ul {width: 270px; transform: translateX(320px);}
+@media screen and (min-width: 1080px) {
 
+  /* logo ------------------------- */
+  #header-spacer {height: 160px;}
+  .header-logo {width: 255px; height: 170px;}
 
 }
