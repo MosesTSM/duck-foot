@@ -2,27 +2,19 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 
+<div class="home-banner-title">
+	<h1 id="home-title"><span>The</span> aftermarket paddle tine</h1>
+	<h2 id="home-subtitle">Duck Foot is the most trusted name in header precision efficiency</h2>
+</div>
 
-<section id="home-page-hero">
-
-</section>
-
+<div class="home-page-banner-image-container">
+	<img src="<?php bloginfo('url'); ?>/wp-content/themes/duck-foot/images/home-banner-image-crop.webp" alt="combine header loaded with duck foot attachments" />
+</div>
 
 <?php if( '' !== get_post()->post_content ) { ?>
-	<section id="home-content">	
-		<div class="home-columns">
-			<div class="home-column home-text-column small-padding side-padding long-text">
-		        <?php the_content(); ?>
-		    </div>
-		    <div class="home-column home-image-column">
-				<?php $contentimg = get_field('home_content_image'); if( !empty( $contentimg ) ): ?>
-				    <img src="<?php echo esc_url($contentimg['url']); ?>" alt="<?php echo esc_attr($contentimg['alt']); ?>" />
-				<?php else: ?>
-					<img src="<?php bloginfo('url'); ?>/wp-content/themes/florite/images/home-content-image.jpg" alt="man inspecting crops in field" />
-				<?php endif; ?>
-			</div>
-	    </div>
-	</section>
+	<div class="home-main-content">
+        <?php the_content(); ?>
+    </div>
 <?php } ?>
 
 

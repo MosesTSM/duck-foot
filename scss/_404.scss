@@ -1,0 +1,78 @@
+/* --------------------------------------------------------------------------------------- */
+/* 404 ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+.no-page-container {}
+.no-page-text {
+  width: 80%;
+  margin: 32px auto 72px;
+  text-align: center;
+}
+.duck-knife {
+  position: relative;
+  left: -3%;
+  display: block;
+  width: 72%;
+  height: auto;
+  margin: 32px auto 0;
+}
+
+
+
+@media screen and (min-width: 640px) {
+
+  .no-page-container {
+    height: calc(100vh - 86px); 
+    margin-top: -96px;
+  }
+  .no-page-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: block;
+    width: 65%;
+    max-width: 400px;
+    margin: 0;
+    transform: translate(-55%,calc(-50% + 52px));
+    text-align: left;
+  }
+  .duck-knife {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 400px;
+    height: auto;
+    margin: 0;
+    transform: translate(-35%,calc(-50% + 52px));
+  }
+
+}
+
+
+@media screen and (min-width: 900px) {
+
+  .no-page-container {
+    height: calc(100vh - 114px); 
+    margin-top: -14px;
+  }
+  .no-page-text {
+    max-width: 512px;
+    transform: translate(-55%,calc(-50% + 12px));
+  }
+  .duck-knife {
+    width: 550px;
+    transform: translate(-35%,calc(-50% + 12px));
+  }
+
+}
+
+
+@media screen and (min-width: 1080px) {
+
+  .no-page-container {
+    height: calc(100vh - 117px); 
+    margin-top: -59px;
+  }
+
+}

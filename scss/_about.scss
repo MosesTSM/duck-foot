@@ -1,0 +1,121 @@
+/* --------------------------------------------------------------------------------------- */
+/* About main content ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+.about-title {z-index: 2; text-align: center;}
+.about-content {z-index: 1;}
+.about-content-image {
+  margin-bottom: 32px;
+  border-bottom: 1px solid $black;
+}
+.about-content-image img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 256px;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* Award Banner ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+#award {
+  min-height: 500px;
+  height: 40vw;
+  max-height: 800px;
+}
+#award .title-wrap {
+  padding: 5vw 0 0;
+  margin: 0 0 12px;
+}
+.awards-photo {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: auto;
+  height: 100%;
+  transform: translateX(-47%);
+}
+
+
+
+@media screen and (min-width: 500px) {
+
+  /* About main content ---------------------------------------------- */
+  .about-title {text-align: left;}
+  .about #main-content {margin-top: 8vw;}
+  .about-content-image {
+    height: 8vw;
+    margin-bottom: 6vw;
+    border-bottom: 1px solid $black;
+  }
+  .about-content-image img {
+    position: absolute;
+    right: 32px;
+    bottom: 0;
+    display: block;
+    width: 40%;
+    height: auto;
+  }
+
+}
+
+
+@media screen and (min-width: 900px) {
+
+  /* About main content ---------------------------------------------- */
+  .about #main-content {margin-top: 0;}
+  .about-content-adjust {margin-left: 250px;}
+  .about-content-image {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    height: auto;
+    width: calc(5% + 230px);
+    margin: 0;
+  }
+  .about-content-image:before {
+    content: '';
+    position: absolute;
+    right: 40px;
+    bottom: 0;
+    z-index: 1;
+    width: 400px;
+    height: 100%;
+    background: $light;
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+    -webkit-transition: all 1.5s ease;
+    -moz-transition: all 1.5s ease;
+    -o-transition: all 1.5s ease;
+    transition: all 1.5s ease;
+  }
+  .about-content-image img {
+    position: relative;
+    right: initial;
+    width: 280px;
+    height: auto;
+    margin: 0 0 0 auto;
+  }
+
+  /* Award Banner ---------------------------------------------- */
+  #award .title-wrap {padding-top: 48px;}
+
+}
+
+
+@media screen and (min-width: 1080px) {
+
+  /* Award Banner ---------------------------------------------- */
+  #award .title-wrap {padding-top: 48px;}
+
+}
+
+
+@media screen and (min-width: 1330px) {
+
+  /* About main content ---------------------------------------------- */
+  .about-content-image {width: calc(50% - 370px);}
+  .about-content-image img {width: 320px;}
+
+}

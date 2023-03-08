@@ -1,0 +1,42 @@
+/* --------------------------------------------------------------------------------------- */
+/* Contact Columns ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+.contact-info-block {margin-bottom: 24px;}
+
+
+
+@media screen and (min-width: 400px) {
+
+  /* Contact Columns ---------------------------------------------- */
+  .contact-column.contact-info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .contact-info-block {width: 48%;}
+
+}
+
+
+@media screen and (min-width: 700px) {
+
+  /* Contact Columns ---------------------------------------------- */
+  .contact-columns {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .contact-column.contact-info {
+    display: block;
+    width: 350px; 
+    margin-right: 24px;
+  }
+  .contact-info-block {width: 100%;}
+
+}

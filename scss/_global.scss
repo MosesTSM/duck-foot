@@ -30,9 +30,10 @@ body {
   background: $primary;
   color: $black;
 }
-body::-webkit-scrollbar {width: 0;}
+body::-webkit-scrollbar {width: 0em;}
 #container {
   position: relative;
+  overflow: hidden;
   width: 100%;
   background: $white;
   z-index: 2;
@@ -183,12 +184,12 @@ h3 {margin-bottom: 12px;}
 h4, h5, h6 {margin-bottom: 0;}
 h1, h2, h3, .title-wrap {font-family: $slab; margin-top: 48px;}
 h4, h5, h6 {font-family: $sans; margin-top: 32px;}
-h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6,
-h2 + h3, h2 + h4, h2 + h5, h2 + h6,
-h3 + h2, h3 + h4, h3 + h5, h3 + h6,
-h4 + h2, h2 + h3, h4 + h5, h4 + h6,
-h5 + h2, h5 + h3, h5 + h4, h5 + h6,
-h6 + h2, h6 + h3, h6 + h4, h6 + h5 {
+.title-wrap + .title-wrap, .title-wrap + h3, .title-wrap + h4, .title-wrap + h5, .title-wrap + h6,
+.title-wrap + h3, .title-wrap + h4, .title-wrap + h5, .title-wrap + h6,
+h3 + .title-wrap, h3 + h4, h3 + h5, h3 + h6,
+h4 + .title-wrap, .title-wrap + h3, h4 + h5, h4 + h6,
+h5 + .title-wrap, h5 + h3, h5 + h4, h5 + h6,
+h6 + .title-wrap, h6 + h3, h6 + h4, h6 + h5 {
   margin-top: 0;
 }
 h1, h2 {font-size: 2.125em; line-height: 1.125em;}
@@ -197,8 +198,8 @@ h4 {font-size: 1.333em; line-height: 1.25em;}
 h5 {font-size: 1.125em; line-height: 1.15em; text-transform: uppercase;}
 h6 {font-size: 1.05em; line-height: 1.45em;}
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {margin-top: 0;}
-h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child {margin-bottom: 0;}
+.title-wrap:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {margin-top: 0;}
+.title-wrap:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child {margin-bottom: 0;}
 
 h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   font-size: $smallfont;
@@ -335,24 +336,39 @@ a:hover {
   margin: 0;
   width: 100%; 
 }
-.buttons-wrapper.left-buttons {text-align: left;}
-.buttons-wrapper.center-buttons {text-align: center;}
-.buttons-wrapper.right-buttons {text-align: right;}
-
 a.button {
   overflow: hidden;
   display: inline-block;
-  padding: 10px 40px;
-  margin: 0 0 0 12px;
-  border: 1px solid $black;
-  border-radius: 4px;
-  background: none;
-  font-family: $sans;
-  font-weight: 700;
+  padding: 10px 24px;
+  margin: 0;
+  border: 1px solid $secondary;
+  border-radius: $borderradius;
+  color: $black;
+  font-family: $slab;
+  font-weight: 400;
   text-transform: uppercase;
   line-height: 1em;
 }
-a.button:hover {color: $primary;}
+.small-buttons a.button {font-size: 1.15em;}
+.large-buttons a.button {font-size: 1.75em;}
+.block-buttons a.button {display: block; margin: 0 0 6px; padding: 10px 16px;}
+
+.buttons-wrapper.left-buttons {text-align: left;}
+.buttons-wrapper.center-buttons {text-align: center;}
+.buttons-wrapper.right-buttons {text-align: right;}
+.buttons-wrapper a.button {margin: 3px 12px 3px 0;}
+.buttons-wrapper.center-buttons a.button {margin: 3px 6px;}
+.buttons-wrapper.right-buttons a.button {margin: 3px 0 3px 12px;}
+
+.bg-primary a.button, .mobile-nav a.button, footer a.button {border-color: $black; color: $black;}
+.bg-primary a.button:hover, .mobile-nav a.button:hover, footer a.button:hover {border-color: $black; color: $primary;}
+.bg-black a.button {border-color: $secondary; color: $white;}
+.bg-black a.button:hover {color: $secondary;}
+.bg-secondary a.button {border-color: $white; color: $secondary;}
+.bg-secondary a.button:hover {color: $white;}
+.bg-tertiary a.button {border-color: $white; color: $secondary;}
+.bg-tertiary a.button:hover {color: $white;}
+
 a.button:after {
   content: '';
   position: absolute;
@@ -362,30 +378,15 @@ a.button:after {
   display: block;
   width: 100%;
   height: 100%;
-  background: $black;
-  opacity: 0;
+  background: $secondary;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-a.button:hover:after {opacity: 1;}
-
-.small-buttons a.button {font-size: 1.15em;}
-.large-buttons a.button {font-size: 1.75em;}
-.block-buttons a.button {display: block; margin: 0 0 6px; padding: 10px 16px;}
-
-.buttons-wrapper a.button {margin: 3px 12px 3px 0;}
-.buttons-wrapper.center-buttons a.button {margin: 3px 6px;}
-.buttons-wrapper.right-buttons a.button {margin: 3px 0 3px 12px;}
-
-.bg-primary a.button:hover {border-color: $white; background: $primary; color: $white;}
-.bg-black a.button {border-color: $secondary; background: $secondary; color: $white;}
-.bg-black a.button:hover {background: $black; color: $secondary;}
-.bg-secondary a.button {border-color: $white; background: $white; color: $secondary;}
-.bg-secondary a.button:hover {background: $secondary; color: $white;}
-.bg-tertiary a.button {border-color: $white; background: $white; color: $secondary;}
-.bg-tertiary a.button:hover {background: $secondary; color: $white;}
+a.button:hover:after {background: $primary;}
+.bg-primary a.button:after, .mobile-nav a.button:after, footer a.button:after {background: $primary;}
+.bg-primary a.button:hover:after, .mobile-nav a.button:hover:after, footer a.button:hover:after {background: $black;}
 
 .button-duck-walk {
   position: absolute;
@@ -404,6 +405,7 @@ a.button:hover:after {opacity: 1;}
 }
 a.button:hover .button-duck-walk {opacity: 1;}
 .button-duck-walk svg {
+  fill: $secondary;
   display: inline-block; 
   vertical-align: middle; 
   width: 20px; 

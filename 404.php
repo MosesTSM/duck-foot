@@ -1,17 +1,14 @@
 <?php get_header(); ?>
 
 
-<section id="main-content" class="large-padding bg-secondary long-text center-align">
-	<div class="sticky-image-bg">
-		<div class="bg-404"></div>
-	</div>
-	<div class="wrapper thin-wrapper">
-		<div class="small-padding side-padding bg-black-opaque">
-			<h1 class="center-align">Page not found</h1>
+<section id="main-content" class="no-page-container long-text">
+    <img class="duck-knife" src="<?php bloginfo('url'); ?>/wp-content/themes/duck-foot/images/duck-knife.png" alt="dangerous duck" />
 
-			<div class="buttons-wrapper center-buttons">
-		        <a href="javascript:history.go(-1)" class="button" onMouseOver="self.status=document.referrer;return true">Back</a>
-		    </div>
+	<div class="no-page-text">
+		<h1 class="center-align">Whoops! <br />Nothing to see here</h1>
+
+		<div class="buttons-wrapper">
+	        <a href="javascript:history.go(-1)" id="back-button" class="button" onMouseOver="self.status=document.referrer;return true">Back away slowly</a>
 	    </div>
     </div>
 </section>
